@@ -1,12 +1,12 @@
-const { Router } = require('express');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-
-
+/*
+Modularizamos las rutas y luego acá las ponemos como middleware y después lo llevamos al app.js
+*/
+const { Router } = require("express");
 const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
+const ActivityRoute = require("./activities");
+const CountryRoute = require("./countries");
+// Nos traemos nuestras rutas para usarlas como middleware en /api/activity por ejemplo
+router.use("/activities", ActivityRoute);
+router.use("/countries", CountryRoute);
 
 module.exports = router;
